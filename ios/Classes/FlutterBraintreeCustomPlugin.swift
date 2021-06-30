@@ -64,7 +64,7 @@ public class FlutterBraintreeCustomPlugin: BaseFlutterBraintreePlugin, FlutterPl
                    expirationMonth: (cardRequestInfo["expirationMonth"] as? String)!,
                    expirationYear: (cardRequestInfo["expirationYear"] as? String)!,
                    cvv: (cardRequestInfo["cvv"] as? String)!)
-                   cardholderName: (cardRequestInfo["cardholderName"] as? String) ?? nil)
+            card.cardholderName = (cardRequestInfo["cardholderName"] as? String) ?? nil
             
             cardClient.tokenizeCard(card) { (nonce, error) in
                 self.handleResult(nonce: nonce, error: error, flutterResult: result)
